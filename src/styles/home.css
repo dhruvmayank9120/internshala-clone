@@ -1,0 +1,38 @@
+.main-layout {
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+
+  padding-top: 18px;
+
+  padding-bottom: 40px;
+}
+
+.left-section {
+  width: 260px;
+}
+
+.right-section {
+  flex: 1;
+}
+
+@media (max-width: 992px) {
+
+  .main-layout {
+    flex-direction: column;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .left-section {
+    width: 100%;
+  }
+
+}
