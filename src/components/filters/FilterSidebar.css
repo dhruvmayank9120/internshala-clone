@@ -1,97 +1,118 @@
 .filter-sidebar {
-  background-color: white;
+
+  background: white;
 
   border: 1px solid #e5e7eb;
 
-  border-radius: 4px;
+  border-radius: 8px;
 
-  padding: 18px 16px;
+  padding: 22px 18px;
 
-  margin-bottom: 12px;
+  width: 100%;
+
 }
 
 .filter-header {
-  margin-bottom: 18px;
+
+  margin-bottom: 20px;
+
 }
 
 .filter-header h3 {
-  font-size: 22px;
 
-  font-weight: 600;
+  font-size: 24px;
 
-  color: #333;
+  font-weight: 700;
+
+  color: #111827;
+
 }
 
 .checkbox-group {
+
   display: flex;
 
   align-items: center;
 
   gap: 10px;
 
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+
 }
 
 .checkbox-group input {
-  width: 15px;
 
-  height: 15px;
+  width: 16px;
+
+  height: 16px;
 
   cursor: pointer;
+
 }
 
 .checkbox-group span {
+
   font-size: 14px;
 
-  color: #333;
+  color: #374151;
 
-  line-height: 20px;
 }
 
 .blue-text {
+
   color: #00a5ec;
+
 }
 
 .filter-group {
-  display: flex;
 
-  flex-direction: column;
+  margin-bottom: 20px;
 
-  margin-bottom: 18px;
 }
 
 .filter-group label {
+
+  display: block;
+
   font-size: 14px;
 
-  color: #333;
+  font-weight: 500;
+
+  color: #374151;
 
   margin-bottom: 8px;
 
-  font-weight: 500;
 }
 
 .filter-group input[type="text"] {
-  height: 42px;
+
+  width: 100%;
+
+  height: 40px;
 
   border: 1px solid #d1d5db;
 
-  border-radius: 3px;
+  border-radius: 6px;
 
-  padding: 0 12px;
+  padding: 0 14px;
 
-  font-size: 14px;
+  font-size: 13px;
 
   outline: none;
+
+  transition: 0.2s;
+
 }
 
 .filter-group input[type="text"]:focus {
+
   border-color: #00a5ec;
+
 }
 
 .filter-group input[type="range"] {
-  appearance: none;
 
-  -webkit-appearance: none;
+  appearance: none;
 
   width: 100%;
 
@@ -99,23 +120,22 @@
 
   background: #00a5ec;
 
-  border-radius: 20px;
-
-  outline: none;
-
-  margin-top: 8px;
+  border-radius: 999px;
 
   cursor: pointer;
+
+  margin-top: 10px;
+
 }
 
-.filter-group input[type="range"]::-webkit-slider-thumb {
+.filter-group
+input[type="range"]::-webkit-slider-thumb {
+
   appearance: none;
 
-  -webkit-appearance: none;
+  width: 18px;
 
-  width: 20px;
-
-  height: 20px;
+  height: 18px;
 
   border-radius: 50%;
 
@@ -124,23 +144,46 @@
   border: 4px solid #00a5ec;
 
   cursor: pointer;
+
+}
+
+.filter-group
+input[type="range"]::-moz-range-thumb {
+
+  width: 18px;
+
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  border: 4px solid #00a5ec;
+
+  cursor: pointer;
+
 }
 
 .stipend-values {
+
   display: flex;
 
   justify-content: space-between;
 
-  margin-top: 12px;
+  margin-top: 10px;
+
 }
 
 .stipend-values span {
-  font-size: 13px;
+
+  font-size: 12px;
 
   color: #6b7280;
+
 }
 
 .view-more {
+
   color: #00a5ec;
 
   font-size: 14px;
@@ -149,137 +192,258 @@
 
   cursor: pointer;
 
-  margin-top: 10px;
+  margin-top: 12px;
 
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+
 }
 
 .extra-filters {
-  margin-top: 10px;
+
+  margin-top: 12px;
+
 }
 
 .clear-all {
+
   color: #00a5ec;
 
   font-size: 14px;
+
+  font-weight: 500;
 
   text-align: right;
 
   cursor: pointer;
 
   margin-top: 20px;
-}
 
-.keyword-box {
-  background-color: white;
-
-  border: 1px solid #e5e7eb;
-
-  border-radius: 4px;
-
-  padding: 18px 16px;
-}
-
-.keyword-box h3 {
-  text-align: center;
-
-  margin-bottom: 16px;
-
-  font-size: 18px;
-
-  color: #333;
-}
-
-.keyword-input {
-  display: flex;
-}
-
-.keyword-input input {
-  flex: 1;
-
-  height: 42px;
-
-  border: 1px solid #d1d5db;
-
-  border-right: none;
-
-  border-radius: 3px 0 0 3px;
-
-  padding: 0 12px;
-
-  font-size: 14px;
-
-  outline: none;
-}
-
-.keyword-input button {
-  width: 50px;
-
-  border: none;
-
-  background-color: #00a5ec;
-
-  color: white;
-
-  font-size: 18px;
-
-  border-radius: 0 3px 3px 0;
-
-  cursor: pointer;
 }
 
 .date-picker-input {
+
   width: 100%;
 
-  height: 42px;
+  height: 40px;
 
   border: 1px solid #d1d5db;
 
-  border-radius: 3px;
+  border-radius: 6px;
 
-  padding: 0 12px;
+  padding: 0 14px;
 
-  font-size: 14px;
+  font-size: 13px;
 
   outline: none;
+
 }
 
 .react-datepicker {
+
   border: 1px solid #e5e7eb !important;
 
-  font-family: inherit !important;
+  border-radius: 8px !important;
+
+  overflow: hidden;
+
+  font-size: 13px;
+
+}
+
+.react-datepicker__header {
+
+  background: white !important;
+
+  border-bottom: 1px solid #e5e7eb !important;
+
+}
+
+.react-datepicker__current-month {
+
+  font-size: 14px !important;
+
+  font-weight: 600 !important;
+
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+
+  width: 2rem !important;
+
+  line-height: 2rem !important;
+
+}
+
+.react-datepicker__day--selected {
+
+  background: #00a5ec !important;
+
+}
+
+.react-datepicker__day:hover {
+
+  background: #e0f2fe !important;
+
 }
 
 .react-datepicker__day--disabled {
+
   color: #d1d5db !important;
 
   cursor: not-allowed !important;
+
 }
 
-.duration-select .css-13cymwt-control {
-  min-height: 42px;
+.duration-select
+.css-13cymwt-control {
 
-  border-radius: 3px;
+  min-height: 40px;
+
+  border-radius: 6px;
 
   border: 1px solid #d1d5db;
+
+  box-shadow: none;
+
+  cursor: pointer;
+
 }
 
-.duration-select .css-t3ipsp-control {
-  min-height: 42px;
+.duration-select
+.css-13cymwt-control:hover {
 
-  border-radius: 3px;
+  border-color: #9ca3af;
+
+}
+
+.duration-select
+.css-t3ipsp-control {
+
+  min-height: 40px;
+
+  border-radius: 6px;
 
   border: 1px solid #00a5ec;
 
   box-shadow: none;
+
 }
 
-.duration-select .css-1nmdiq5-menu {
-  border-radius: 0;
+.duration-select
+.css-1fdsijx-ValueContainer {
 
-  margin-top: 0;
+  padding: 0 12px;
 
-  border: 1px solid #d1d5db;
+  font-size: 13px;
 
-  box-shadow: none;
+}
+
+.duration-select
+.css-1jqq78o-placeholder {
+
+  font-size: 13px;
+
+  color: #9ca3af;
+
+}
+
+.duration-select
+.css-1u9des2-indicatorSeparator {
+
+  display: none;
+
+}
+
+.duration-select
+.css-1xc3v61-indicatorContainer {
+
+  color: #6b7280;
+
+}
+
+.duration-select
+.css-1nmdiq5-menu {
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+  margin-top: 4px;
+
+}
+
+.duration-select
+.css-10wo9uf-option {
+
+  padding: 11px 14px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+}
+
+.duration-select
+.css-d7l1ni-option {
+
+  background: #f3f4f6 !important;
+
+  color: #111827 !important;
+
+  font-size: 13px;
+
+}
+
+.duration-select
+.css-10wo9uf-option:hover {
+
+  background: #f3f4f6 !important;
+
+}
+.checkbox-group input {
+
+  accent-color: #00a5ec;
+
+}
+
+.filter-group input[type="text"]:hover,
+.date-picker-input:hover {
+
+  border-color: #9ca3af;
+
+}
+
+.filter-group input[type="text"],
+.date-picker-input {
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+}
+
+.filter-group input[type="text"]:focus,
+.date-picker-input:focus {
+
+  box-shadow:
+    0 0 0 3px rgba(0,165,236,0.08);
+
+}
+
+.clear-all:hover {
+
+  text-decoration: underline;
+
+}
+
+.view-more:hover {
+
+  text-decoration: underline;
+
 }

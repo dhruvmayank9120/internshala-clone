@@ -47,54 +47,105 @@ function FilterSidebar({
 
 }) {
 
-  const [showMoreFilters, setShowMoreFilters] =
+  const [showMoreFilters,
+    setShowMoreFilters] =
     useState(false);
 
   const durationOptions = [
 
     {
-      value: "1 month",
-      label: "1 month",
+      value: "1 Month",
+      label: "1 Month",
     },
 
     {
-      value: "2 months",
-      label: "2 months",
+      value: "2 Months",
+      label: "2 Months",
     },
 
     {
-      value: "3 months",
-      label: "3 months",
+      value: "3 Months",
+      label: "3 Months",
     },
 
     {
-      value: "4 months",
-      label: "4 months",
+      value: "4 Months",
+      label: "4 Months",
     },
 
     {
-      value: "6 months",
-      label: "6 months",
+      value: "6 Months",
+      label: "6 Months",
     },
 
     {
-      value: "12 months",
-      label: "12 months",
+      value: "12 Months",
+      label: "12 Months",
     },
 
     {
-      value: "24 months",
-      label: "24 months",
+      value: "24 Months",
+      label: "24 Months",
     },
 
     {
-      value: "36 months",
-      label: "36 months",
+      value: "36 Months",
+      label: "36 Months",
+    },
+
+  ];
+
+  const locationOptions = [
+
+    {
+      value: "Delhi",
+      label: "Delhi",
+    },
+
+    {
+      value: "Lucknow",
+      label: "Lucknow",
+    },
+
+    {
+      value: "Gurgaon",
+      label: "Gurgaon",
+    },
+
+    {
+      value: "Munnar",
+      label: "Munnar",
+    },
+
+    {
+      value: "Parbhani",
+      label: "Parbhani",
+    },
+
+    {
+      value: "Kera",
+      label: "Kera",
+    },
+
+    {
+      value: "Tarn Taran",
+      label: "Tarn Taran",
+    },
+
+    {
+      value: "Banga",
+      label: "Banga",
+    },
+
+    {
+      value: "Work From Home",
+      label: "Work From Home",
     },
 
   ];
 
   return (
+
     <div>
 
       <div className="filter-sidebar">
@@ -102,7 +153,7 @@ function FilterSidebar({
         <div className="filter-header">
 
           <h3>
-            🧷 Filters
+            Filters
           </h3>
 
         </div>
@@ -134,7 +185,9 @@ function FilterSidebar({
             placeholder="e.g. Marketing"
             value={profile}
             onChange={(e) =>
-              setProfile(e.target.value)
+              setProfile(
+                e.target.value
+              )
             }
           />
 
@@ -146,13 +199,33 @@ function FilterSidebar({
             Location
           </label>
 
-          <input
-            type="text"
-            placeholder="e.g. Delhi"
-            value={location}
-            onChange={(e) =>
-              setLocation(e.target.value)
+          <Select
+
+            options={locationOptions}
+
+            placeholder="Choose city"
+
+            isSearchable={true}
+
+            value={
+              location
+                ? {
+                    value: location,
+                    label: location,
+                  }
+                : null
             }
+
+            onChange={(selectedOption) =>
+              setLocation(
+                selectedOption
+                  ? selectedOption.value
+                  : ""
+              )
+            }
+
+            className="duration-select"
+
           />
 
         </div>
@@ -196,23 +269,6 @@ function FilterSidebar({
         <div className="filter-group">
 
           <label>
-            Duration
-          </label>
-
-          <input
-            type="text"
-            placeholder="e.g. 3 Months"
-            value={duration}
-            onChange={(e) =>
-              setDuration(e.target.value)
-            }
-          />
-
-        </div>
-
-        <div className="filter-group">
-
-          <label>
             Desired minimum monthly stipend (₹)
           </label>
 
@@ -224,7 +280,9 @@ function FilterSidebar({
             value={stipend}
             onChange={(e) =>
               setStipend(
-                Number(e.target.value)
+                Number(
+                  e.target.value
+                )
               )
             }
           />
@@ -265,6 +323,7 @@ function FilterSidebar({
         </p>
 
         {
+
           showMoreFilters && (
 
             <div className="extra-filters">
@@ -272,7 +331,8 @@ function FilterSidebar({
               <div className="filter-group">
 
                 <label>
-                  Starting from (or after)
+                  Starting from
+                  (or after)
                 </label>
 
                 <DatePicker
@@ -291,24 +351,41 @@ function FilterSidebar({
               <div className="filter-group">
 
                 <label>
-                  Max. duration (months)
+                  Max. duration
+                  (months)
                 </label>
 
                 <Select
 
-                  options={durationOptions}
+                  options={
+                    durationOptions
+                  }
 
-                  placeholder="Choose duration"
+                  placeholder=
+                    "Choose duration"
 
                   isSearchable={false}
 
-                  onChange={(selectedOption) =>
-                    setDuration(
-                      selectedOption.value
-                    )
+                  value={
+                    duration
+                      ? {
+                          value: duration,
+                          label: duration,
+                        }
+                      : null
                   }
 
-                  className="duration-select"
+                  onChange={
+                    (selectedOption) =>
+                      setDuration(
+                        selectedOption
+                          ? selectedOption.value
+                          : ""
+                      )
+                  }
+
+                  className=
+                    "duration-select"
 
                 />
 
@@ -327,7 +404,8 @@ function FilterSidebar({
                 />
 
                 <span>
-                  Internships with job offer ⓘ
+                  Internships with
+                  job offer ⓘ
                 </span>
 
               </div>
@@ -372,7 +450,9 @@ function FilterSidebar({
 
                 <input
                   type="checkbox"
-                  checked={womenInternship}
+                  checked={
+                    womenInternship
+                  }
                   onChange={(e) =>
                     setWomenInternship(
                       e.target.checked
@@ -381,7 +461,8 @@ function FilterSidebar({
                 />
 
                 <span>
-                  Internships for women ⓘ
+                  Internships for
+                  women ⓘ
                 </span>
 
               </div>
@@ -389,6 +470,7 @@ function FilterSidebar({
             </div>
 
           )
+
         }
 
         <p
@@ -400,29 +482,10 @@ function FilterSidebar({
 
       </div>
 
-      <div className="keyword-box">
-
-        <h3>
-          Keyword Search
-        </h3>
-
-        <div className="keyword-input">
-
-          <input
-            type="text"
-            placeholder="e.g. Design, Mumbai, Infosys"
-          />
-
-          <button>
-            🔍
-          </button>
-
-        </div>
-
-      </div>
-
     </div>
+
   );
+
 }
 
 export default FilterSidebar;

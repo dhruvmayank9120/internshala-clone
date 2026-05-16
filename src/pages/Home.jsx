@@ -1,20 +1,25 @@
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/navbar/Navbar";
+
 import HeroSection from "../components/sections/HeroSection";
 
 import FilterSidebar from "../components/filters/FilterSidebar";
+
 import InternshipList from "../components/internships/InternshipList";
+
+import Footer from "../components/footer/Footer";
 
 import { fetchInternships } from "../services/api";
 
 import "../styles/home.css";
 
 function Home() {
-
   const [internships, setInternships] = useState([]);
 
   const [loading, setLoading] = useState(true);
+
+  const [filterLoading, setFilterLoading] = useState(false);
 
   const [profile, setProfile] = useState("");
 
@@ -24,144 +29,115 @@ function Home() {
 
   const [stipend, setStipend] = useState(0);
 
-  const [workFromHome, setWorkFromHome] =
-    useState(false);
+  const [workFromHome, setWorkFromHome] = useState(false);
 
-  const [partTime, setPartTime] =
-    useState(false);
+  const [partTime, setPartTime] = useState(false);
 
-  const [jobOffer, setJobOffer] =
-    useState(false);
+  const [jobOffer, setJobOffer] = useState(false);
 
-  const [fastResponse, setFastResponse] =
-    useState(false);
+  const [fastResponse, setFastResponse] = useState(false);
 
-  const [earlyApplicant, setEarlyApplicant] =
-    useState(false);
+  const [earlyApplicant, setEarlyApplicant] = useState(false);
 
-  const [womenInternship, setWomenInternship] =
-    useState(false);
+  const [womenInternship, setWomenInternship] = useState(false);
 
-  const [startDate, setStartDate] =
-    useState(null);
+  const [startDate, setStartDate] = useState(null);
 
   useEffect(() => {
-
     const getData = async () => {
+      try {
+        const data = await fetchInternships();
 
-      const data = await fetchInternships();
-
-      setInternships(
-        Object.values(data.internships_meta || {})
-      );
-
-      setLoading(false);
-
+        setInternships(Object.values(data.internships_meta || {}));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     getData();
-
   }, []);
 
-  const filteredInternships = internships.filter(
-    (internship) => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
 
-      const title =
-        internship.title || "";
+      behavior: "smooth",
+    });
 
-      const locationName =
-        internship.location_names?.[0] || "";
+    const startLoading = setTimeout(() => {
+      setFilterLoading(true);
+    }, 0);
 
-      const internshipDuration =
-        internship.duration || "";
+    const stopLoading = setTimeout(() => {
+      setFilterLoading(false);
+    }, 400);
 
-      const internshipStipend =
-        internship.stipend?.salaryValue1 || 0;
+    return () => {
+      clearTimeout(startLoading);
 
-      const isWorkFromHome =
-        internship.work_from_home;
+      clearTimeout(stopLoading);
+    };
+  }, [
+    profile,
 
-      const isPartTime =
-        internship.part_time;
+    location,
 
-      const hasJobOffer =
-        internship.ppo_label_value;
+    duration,
 
-      const postedRecently =
-        internship.posted_by_label;
+    stipend,
 
-      const isWomenInternship =
-        internship.is_internship_for_women;
+    workFromHome,
 
-      return (
+    partTime,
 
-        title
-          .toLowerCase()
-          .includes(profile.toLowerCase())
+    jobOffer,
 
-        &&
+    fastResponse,
 
-        locationName
-          .toLowerCase()
-          .includes(location.toLowerCase())
+    womenInternship,
 
-        &&
+    startDate,
+  ]);
 
-        internshipDuration
-          .toLowerCase()
-          .includes(duration.toLowerCase())
+  const filteredInternships = internships.filter((internship) => {
+    const title = internship.title || "";
 
-        &&
+    const locationNames = internship.location_names || [];
 
-        internshipStipend >= stipend
+    const isWorkFromHome = internship.work_from_home;
 
-        &&
+    const locationText = isWorkFromHome
+      ? "Work From Home"
+      : locationNames.join(" ");
 
-        (
-          !workFromHome
-          ||
-          isWorkFromHome
-        )
+    const internshipDuration = internship.duration || "";
 
-        &&
+    const internshipStipend = internship.stipend?.salaryValue1 || 0;
 
-        (
-          !partTime
-          ||
-          isPartTime
-        )
+    const isPartTime = internship.part_time;
 
-        &&
+    const hasJobOffer = internship.ppo_label_value;
 
-        (
-          !jobOffer
-          ||
-          hasJobOffer
-        )
+    const postedRecently = internship.posted_by_label;
 
-        &&
+    const isWomenInternship = internship.is_internship_for_women;
 
-        (
-          !fastResponse
-          ||
-          postedRecently
-        )
-
-        &&
-
-        (
-          !womenInternship
-          ||
-          isWomenInternship
-        )
-
-      );
-
-    }
-  );
+    return (
+      title.toLowerCase().includes(profile.toLowerCase()) &&
+      locationText.toLowerCase().includes(location.toLowerCase()) &&
+      internshipDuration.toLowerCase().includes(duration.toLowerCase()) &&
+      internshipStipend >= stipend &&
+      (!workFromHome || isWorkFromHome) &&
+      (!partTime || isPartTime) &&
+      (!jobOffer || hasJobOffer) &&
+      (!fastResponse || postedRecently) &&
+      (!womenInternship || isWomenInternship)
+    );
+  });
 
   const clearFilters = () => {
-
     setProfile("");
 
     setLocation("");
@@ -183,74 +159,53 @@ function Home() {
     setWomenInternship(false);
 
     setStartDate(null);
-
   };
 
   return (
     <div>
-
       <Navbar />
 
-      <HeroSection
-        total={filteredInternships.length}
-      />
+      <HeroSection total={filteredInternships.length} />
 
       <div className="main-layout">
-
         <div className="left-section">
-
           <FilterSidebar
-
+            internships={internships}
             profile={profile}
             setProfile={setProfile}
-
             location={location}
             setLocation={setLocation}
-
             duration={duration}
             setDuration={setDuration}
-
             stipend={stipend}
             setStipend={setStipend}
-
             workFromHome={workFromHome}
             setWorkFromHome={setWorkFromHome}
-
             partTime={partTime}
             setPartTime={setPartTime}
-
             jobOffer={jobOffer}
             setJobOffer={setJobOffer}
-
             fastResponse={fastResponse}
             setFastResponse={setFastResponse}
-
             earlyApplicant={earlyApplicant}
             setEarlyApplicant={setEarlyApplicant}
-
             womenInternship={womenInternship}
             setWomenInternship={setWomenInternship}
-
             startDate={startDate}
             setStartDate={setStartDate}
-
             clearFilters={clearFilters}
-
           />
-
         </div>
 
         <div className="right-section">
-
           <InternshipList
             internships={filteredInternships}
-            loading={loading}
+            loading={loading || filterLoading}
           />
-
         </div>
-
       </div>
 
+      <Footer />
     </div>
   );
 }

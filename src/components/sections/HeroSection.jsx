@@ -3,66 +3,25 @@ import "./heroSection.css";
 function HeroSection({ total }) {
 
   return (
-    <div className="hero-wrapper">
 
-      <div className="hero-section">
+    <div className="hero-section">
 
-        <div className="breadcrumb">
-          Home / Internships
-        </div>
+      <h1>
 
-        <h1 className="hero-title">
-          {total} Total Internships
-        </h1>
+        {total} Total Internships
 
-        <p className="hero-subtitle">
-          Latest internships in India
-        </p>
+      </h1>
 
-      </div>
+      <p>
 
-      <div className="search-results-bar">
+        Latest summer internships in India
 
-        <div>
-
-          <h3>
-            Search results
-          </h3>
-
-          <p>
-            matching your preferences
-          </p>
-
-        </div>
-
-        <div className="sort-box">
-
-          <span>
-            Sort by:
-          </span>
-
-          <select>
-
-            <option>
-              Relevance
-            </option>
-
-            <option>
-              Latest
-            </option>
-
-            <option>
-              Stipend
-            </option>
-
-          </select>
-
-        </div>
-
-      </div>
+      </p>
 
     </div>
+
   );
+
 }
 
 export default HeroSection;

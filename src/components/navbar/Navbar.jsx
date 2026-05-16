@@ -3,59 +3,103 @@ import "./navbar.css";
 function Navbar() {
 
   return (
+
     <div>
 
-      <div className="top-strip">
+      <div className="top-navbar-strip">
 
-        Get job ready with Full Stack Development
-        with guaranteed placement.
+        <p>
+          Get job ready in Full Stack
+          Development with 100%
+          classroom training & career support.
+        </p>
+
+        <span>
+          Know more
+        </span>
 
       </div>
 
-      <nav className="navbar">
+      <nav className="main-navbar">
 
-        <div className="navbar-left">
+        <div className="navbar-left-section">
 
           <img
             src="https://internshala.com/static/images/common/new_internshala_logo.svg"
             alt="internshala-logo"
-            className="logo"
+            className="internshala-logo"
           />
 
         </div>
 
-        <div className="navbar-center">
+        <div className="navbar-right-section">
 
-          <p>
-            Internships ▼
-          </p>
+          <div className="navbar-item active-nav">
 
-          <p>
-            Courses ▼
-          </p>
+            Internships
 
-          <p>
-            Jobs ▼
-          </p>
+            <span className="dropdown-icon">
+              ▼
+            </span>
 
-        </div>
+          </div>
 
-        <div className="navbar-right">
+          <div className="navbar-item">
 
-          <button className="login-btn">
-            Login
-          </button>
+            Courses
 
-          <button className="signup-btn">
-            Candidate Sign-up
-          </button>
+            <span className="offer-badge">
+              OFFER
+            </span>
+
+            <span className="dropdown-icon">
+              ▼
+            </span>
+
+          </div>
+
+          <div className="navbar-item">
+
+            Jobs
+
+            <span className="dropdown-icon">
+              ▼
+            </span>
+
+          </div>
+
+          <div className="navbar-item">
+
+            IS PRO
+
+          </div>
+
+          <div className="chat-icon">
+
+            💬
+
+          </div>
+
+          <div className="profile-circle">
+
+            D
+
+          </div>
+
+          <div className="dropdown-icon profile-dropdown">
+
+            ▼
+
+          </div>
 
         </div>
 
       </nav>
 
     </div>
+
   );
+
 }
 
 export default Navbar;

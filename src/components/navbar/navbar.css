@@ -1,5 +1,5 @@
-.top-strip {
-  height: 22px;
+.top-navbar-strip {
+  height: 38px;
 
   background-color: #4338ca;
 
@@ -11,13 +11,21 @@
 
   justify-content: center;
 
-  font-size: 11px;
+  gap: 6px;
 
-  font-weight: 500;
+  font-size: 13px;
+
+  font-weight: 600;
 }
 
-.navbar {
-  height: 52px;
+.top-navbar-strip span {
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.main-navbar {
+  height: 74px;
 
   background-color: white;
 
@@ -29,8 +37,127 @@
 
   justify-content: space-between;
 
-  padding: 0 40px;
+  padding: 0 42px;
+}
 
+.navbar-left-section {
+  display: flex;
+
+  align-items: center;
+}
+
+.internshala-logo {
+  width: 126px;
+
+  cursor: pointer;
+}
+
+.navbar-right-section {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+}
+
+.navbar-item {
+  height: 74px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  color: #374151;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.navbar-item:hover {
+  color: #00a5ec;
+}
+
+.active-nav {
+  color: #111827;
+
+  border-bottom: 3px solid #00a5ec;
+}
+
+.dropdown-icon {
+  font-size: 9px;
+
+  margin-top: 2px;
+}
+
+.offer-badge {
+  background-color: #ff8c00;
+
+  color: white;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  padding: 2px 5px;
+
+  border-radius: 3px;
+}
+
+.chat-icon {
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.profile-circle {
+  width: 32px;
+
+  height: 32px;
+
+  border-radius: 50%;
+
+  border: 1px solid #d1d5db;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 14px;
+
+  color: #4b5563;
+
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  margin-left: -18px;
+
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .main-navbar {
+    padding: 0 18px;
+  }
+
+  .navbar-right-section {
+    gap: 14px;
+  }
+
+  .navbar-item {
+    font-size: 13px;
+  }
+}
+.main-navbar {
   position: sticky;
 
   top: 0;
@@ -38,84 +165,18 @@
   z-index: 1000;
 }
 
-.logo {
-  width: 92px;
+.top-navbar-strip {
+  position: sticky;
 
-  cursor: pointer;
+  top: 0;
+
+  z-index: 1001;
 }
 
-.navbar-center {
-  display: flex;
-
-  gap: 24px;
+.navbar-item {
+  transition: color 0.2s ease;
 }
 
-.navbar-center p {
-  font-size: 13px;
-
-  color: #374151;
-
-  cursor: pointer;
-
-  font-weight: 500;
-}
-
-.navbar-right {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-}
-
-.login-btn {
-  background-color: white;
-
-  border: 1px solid #d1d5db;
-
-  padding: 7px 14px;
-
-  border-radius: 4px;
-
-  font-size: 12px;
-
-  cursor: pointer;
-}
-
-.signup-btn {
-  background-color: #00a5ec;
-
-  color: white;
-
-  border: none;
-
-  padding: 8px 14px;
-
-  border-radius: 4px;
-
-  font-size: 12px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-
-  .navbar {
-    padding: 0 16px;
-  }
-
-  .navbar-center {
-    display: none;
-  }
-
-  .signup-btn {
-    display: none;
-  }
-
-  .logo {
-    width: 82px;
-  }
-
+.profile-circle:hover {
+  background: #f9fafb;
 }
