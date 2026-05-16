@@ -6,7 +6,7 @@ import Select from "react-select";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-import "./filterSidebar.css";
+import "./FilterSidebar.css";
 
 function FilterSidebar({
   profile,
