@@ -3,6 +3,7 @@
 This project is a frontend clone of Internshala built using React.js.
 It includes realistic internship filtering logic, responsive UI, loading animations, searchable dropdowns, and a clean user experience similar to the actual platform.
 
+LIVE LINK:https://internshala-clone-alpha.vercel.app/
 ---
 
 # Features
