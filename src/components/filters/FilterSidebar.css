@@ -447,3 +447,114 @@ input[type="range"]::-moz-range-thumb {
   text-decoration: underline;
 
 }
+.custom-select
+.css-13cymwt-control {
+
+  min-height: 40px;
+
+  border-radius: 6px;
+
+  border: 1px solid #d1d5db;
+
+  box-shadow: none;
+
+  cursor: pointer;
+
+}
+
+.custom-select
+.css-13cymwt-control:hover {
+
+  border-color: #9ca3af;
+
+}
+
+.custom-select
+.css-t3ipsp-control {
+
+  min-height: 40px;
+
+  border-radius: 6px;
+
+  border: 1px solid #00a5ec;
+
+  box-shadow: none;
+
+}
+
+.custom-select
+.css-1fdsijx-ValueContainer {
+
+  padding: 0 12px;
+
+  font-size: 13px;
+
+}
+
+.custom-select
+.css-1jqq78o-placeholder {
+
+  font-size: 13px;
+
+  color: #9ca3af;
+
+}
+
+.custom-select
+.css-1u9des2-indicatorSeparator {
+
+  display: none;
+
+}
+
+.custom-select
+.css-1xc3v61-indicatorContainer {
+
+  color: #6b7280;
+
+}
+
+.custom-select
+.css-1nmdiq5-menu {
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+  margin-top: 4px;
+
+}
+
+.custom-select
+.css-10wo9uf-option {
+
+  padding: 11px 14px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+}
+
+.custom-select
+.css-d7l1ni-option {
+
+  background: #e0f2fe !important;
+
+  color: #111827 !important;
+
+  font-size: 13px;
+
+}
+
+.custom-select
+.css-10wo9uf-option:hover {
+
+  background: #f3f4f6 !important;
+
+}
